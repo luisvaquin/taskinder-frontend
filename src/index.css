@@ -1,3 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* CSV */
+/*5373fa,445497,5366bd,5b71d8,6475eb,6c78e0,3454ac,4c5cd4,5c84e8,3c74fc
+
+/* Array */
+/*["5373fa","445497","5366bd","5b71d8","6475eb","6c78e0","3454ac","4c5cd4","5c84e8","3c74fc"] */
