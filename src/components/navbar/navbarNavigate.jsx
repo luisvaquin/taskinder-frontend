@@ -19,6 +19,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import handleNavbarScroll from './navbar.scrollHadler.js';
+import imgLog from '../../../public/iconLogo_dev.png';
 
 const drawerWidth = 240; // Ancho del drawer (barra lateral móvil).
 
@@ -39,7 +40,7 @@ function NavbarNavigate(props) {
         setMobileOpen((prevState) => !prevState);
     };
 
-    // Efecto para manejar el cambio de fondo de la barra de navegación al hacer scroll.
+    // Efecto para manejar el cambio de fondo de la barra de navegación al hacer scroll.    
     React.useEffect(() => {
         const cleanup = handleNavbarScroll(setNavBackground);
         return cleanup; // Limpieza del efecto al desmontar el componente.
@@ -58,7 +59,7 @@ function NavbarNavigate(props) {
                 {navItems.map((item) => (
                     <ListItem key={item.label || item.icon?.iconName} disablePadding>
                         <ListItemButton
-                            component={Link}
+                            component={Link} F
                             to={item.path}
                             sx={{
                                 display: 'flex', // Asegura que el contenido sea un contenedor flexible
@@ -118,13 +119,22 @@ function NavbarNavigate(props) {
 
                     {/* Título o espacio para logo */}
                     <Typography
-                        variant="h6"
+                        variant="h1"
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block', fontSize: '30px' } }}
                     >
-                        Taskin
-                    </Typography>
+                        <a href="/">
+                            <img
+                                src={imgLog}
+                                alt="Logo"
+                                style={{
+                                    height: '40px',
+                                    marginLeft: '15px',
+                                }}
 
+                            />
+                        </a>
+                    </Typography>
                     {/* Lista de navegación visible en pantallas grandes */}
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
