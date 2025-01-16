@@ -1,16 +1,21 @@
 const handleNavbarScroll = (setNavBackground) => {
     const handleScroll = () => {
-        if (window.scrollY > 30) {
-            setNavBackground('#FFFFFF');
+        if (typeof window !== 'undefined' && window.scrollY > 30) {
+            setNavBackground('#ffffff'); // Cambio al fondo blanco cuando se realiza scroll.
         } else {
-            setNavBackground('transparent');
+            setNavBackground('transparent'); // Fondo transparente cuando no se realiza scroll.
         }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    if (typeof window !== 'undefined') {
+        window.addEventListener('scroll', handleScroll);
+    }
+
     return () => {
-        window.removeEventListener('scroll', handleScroll);
+        if (typeof window !== 'undefined') {
+            window.removeEventListener('scroll', handleScroll);
+        }
     };
 };
 
-export default handleNavbarScroll
+export default handleNavbarScroll;

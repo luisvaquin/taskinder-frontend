@@ -18,16 +18,16 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
-import handleNavbarScroll from './navbar.scrollHadler.js';
+import handleNavbarScroll from './navbar.scrollHadler.js'; // Importamos el manejador de scroll
 import imgLog from '../../../public/iconLogo_dev.png';
 
 const drawerWidth = 240; // Ancho del drawer (barra lateral móvil).
 
 // Elementos de navegación.
 const navItems = [
-    { label: 'Login', path: '/' }, // Enlace a la página de inicio.
-    { label: 'register', path: '/register' }, // Enlace a la página de proyectos.
-    { label: '', path: '/', icon: faInfo }, // Ícono de información (sin texto asociado).
+    { label: 'Login', path: '/' },
+    { label: 'Register', path: '/register' },
+    { label: '', path: '/', icon: faInfo },
 ];
 
 function NavbarNavigate(props) {
@@ -59,13 +59,13 @@ function NavbarNavigate(props) {
                 {navItems.map((item) => (
                     <ListItem key={item.label || item.icon?.iconName} disablePadding>
                         <ListItemButton
-                            component={Link} F
+                            component={Link}
                             to={item.path}
                             sx={{
-                                display: 'flex', // Asegura que el contenido sea un contenedor flexible
-                                justifyContent: 'center', // Centra horizontalmente
-                                alignItems: 'center', // Centra verticalmente
-                                textAlign: 'center', // Alineación del texto
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                textAlign: 'center',
                             }}
                         >
                             {item.icon ? (
@@ -74,14 +74,13 @@ function NavbarNavigate(props) {
                                     style={{
                                         color: '#000000',
                                         fontSize: '1rem',
-                                        display: 'block', // Asegura que sea tratada como un bloque para centrar
+                                        display: 'block',
                                     }}
                                 />
                             ) : (
                                 <ListItemText primary={item.label} />
                             )}
                         </ListItemButton>
-
                     </ListItem>
                 ))}
             </List>
@@ -99,7 +98,7 @@ function NavbarNavigate(props) {
                 component="nav"
                 className="h-[4.5rem]"
                 sx={{
-                    backgroundColor: navBackground, // Cambia dinámicamente según el scroll.
+                    backgroundImage: navBackground === 'none' ? '#fff' : '#fff', // Fondo transparente o blanco dinámico.
                     color: navBackground === 'transparent' ? '#fff' : '#000', // Cambia el color del texto.
                     transition: 'background-color 0.3s ease', // Suaviza el cambio de fondo.
                     boxShadow: 'none', // Elimina las sombras para un diseño plano.
@@ -131,10 +130,10 @@ function NavbarNavigate(props) {
                                     height: '40px',
                                     marginLeft: '15px',
                                 }}
-
                             />
                         </a>
                     </Typography>
+
                     {/* Lista de navegación visible en pantallas grandes */}
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
@@ -144,7 +143,7 @@ function NavbarNavigate(props) {
                                 to={item.path}
                                 sx={{
                                     color: navBackground === 'transparent' ? '#fff' : '#000',
-                                    minWidth: 'auto', // Ajusta el tamaño mínimo para elementos solo con íconos.
+                                    minWidth: 'auto',
                                     padding: '1rem',
                                 }}
                             >
@@ -170,7 +169,7 @@ function NavbarNavigate(props) {
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
                     ModalProps={{
-                        keepMounted: true, // Mejora el rendimiento en dispositivos móviles.
+                        keepMounted: true,
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },

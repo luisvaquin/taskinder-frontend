@@ -1,8 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useTrail, a } from '@react-spring/web'
 
+import SectionTeamDeveloper from '../sections/section.teamDeveloper.jsx';
+import SectionOrganization from '../sections/section.organization.jsx';
 import NavbarNavigate from '../../components/navbar/navbarNavigate';
+import styles from './styles.module.css';
 import './styles.homePage.css';
-import Image from "../../../public/iconLog_dev.png";
+
+const Trail = ({ open, children }) => {
+    const items = React.Children.toArray(children)
+    const trail = useTrail(items.length, {
+        config: { mass: 5, tension: 2000, friction: 200 },
+        opacity: open ? 1 : 0,
+        x: open ? 0 : 20,
+        height: open ? 110 : 0,
+        from: { opacity: 0, x: 20, height: 0 },
+    })
+    return (
+        <div>
+            {trail.map(({ height, ...style }, index) => (
+                <a.div key={index} className={styles.trailsText} style={style}>
+                    <a.div style={{ height }}>{items[index]}</a.div>
+                </a.div>
+            ))}
+        </div>
+    )
+}
 
 function HomePage() {
 
@@ -14,48 +37,51 @@ function HomePage() {
         };
     }, []);
 
+    const [open, set] = useState(true)
+
     return (
         <>
             <NavbarNavigate />
             <div className="relative min-h-screen flex items-center">
-                <div className="absolute inset-0 bg-black/40" />
-
+                <div className="absolute inset-0 " />
                 {/* Content */}
-                <div className="relative z-10 container mx-auto px-4 py-12 md:py-24">
-                    {/* Logo */}
-                    {/* Main Content */}
-                    <div className="max-w-3xl space-y-6">
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
-                            TASKINN
+                <div className="relative z-10 container mx-auto px-4 py-12 md:py-24">  {/*Contendedor zoom img homePage*/}
+                    <div className="max-w-3xl space-y-[2rem] md:space-y-8 lg:space-y-10 m-[1.2rem]">
 
-                        </h1>
 
-                        <p className="text-xl md:text-2xl text-gray-300">
-                            Organiza tu tiempo, maximiza tu productividad <br />
-                            y alcanza tus metas con claridad
-                        </p>
+                        <div className="" >
+                            <Trail open={open} >
+                                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight animate-wave">
+                                    TASKINN
+                                </h1>
 
-                        <div className="flex flex-wrap gap-[2rem] pt-6">
+                                <p className="text-xl md:text-2xl text-gray-300 animate-wave">
+                                    Organiza tu tiempo, maximiza tu productividad <br />
+                                    y alcanza tus metas con claridad
+                                </p>
+                            </Trail>
+                        </div>
+
+                        <div className="flex flex-wrap gap-[3rem] pt-6">
                             <button
-                                asChild
                                 size="lg"
-                                className="bg-white text-black hover:bg-gray-100 rounded-[5rem] h-[2.5rem] w-[5.5rem]"
+                                className="bg-white text-black hover:bg-gray-100 rounded-[5rem] h-[2.5rem] w-[11.5rem]"
                             >
-                                <a href="/buy">Buy Now</a>
+                                <a href="/">¿Que es Taskinn?</a>
                             </button>
 
                             <button
-                                asChild
                                 size="lg"
                                 variant="outline"
                                 className="text-white border-white hover:bg-white/10"
                             >
-                                <a href="/services">Shop All</a>
+                                <a href="/">Iniciar</a>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
+            <SectionTeamDeveloper />
         </>
     );
 }
