@@ -36,8 +36,6 @@ function RegisterPage() {
     return (
         <div className=''>
             <Toaster position="top-center" reverseOrder={false} />
-
-
             <form onSubmit={onSubmit} className='flex-col'>
                 Username <input type="username" {...register("username", { required: true })} />
                 {errors.username && <span className='text-red-700'>user is required</span>}

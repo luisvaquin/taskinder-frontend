@@ -18,43 +18,47 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
-import handleNavbarScroll from './navbar.scrollHadler.js'; // Importamos el manejador de scroll
-import imgLog from '../../../public/iconLogo_dev.png';
+import handleNavbarScroll from './navbar.scrollHadler.js';
 
-const drawerWidth = 240; // Ancho del drawer (barra lateral móvil).
+// Define el ancho del menú lateral móvil (drawer).
+const drawerWidth = 240;
 
-// Elementos de navegación.
+// Define los elementos de navegación, con etiquetas, rutas y opcionalmente íconos.
 const navItems = [
     { label: 'Login', path: '/' },
     { label: 'Register', path: '/register' },
-    { label: '', path: '/', icon: faInfo },
+    { label: '', path: '/', icon: faInfo }, // Ejemplo de ícono
 ];
 
+// Componente principal de la barra de navegación.
 function NavbarNavigate(props) {
-    const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false); // Estado para controlar si el drawer móvil está abierto.
-    const [navBackground, setNavBackground] = React.useState('transparent'); // Estado para el color de fondo dinámico de la barra de navegación.
+    const { window } = props; // Obtiene el objeto `window` desde las props.
+    const [mobileOpen, setMobileOpen] = React.useState(false); // Controla si el menú lateral móvil está abierto.
+    const [navBackground, setNavBackground] = React.useState('transparent'); // Controla el fondo dinámico de la barra de navegación.
 
-    // Alterna entre abrir y cerrar el drawer móvil.
+    // Alterna entre abrir y cerrar el menú lateral móvil.
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
 
-    // Efecto para manejar el cambio de fondo de la barra de navegación al hacer scroll.    
+    // Efecto que gestiona el cambio de fondo de la barra según el desplazamiento.
     React.useEffect(() => {
-        const cleanup = handleNavbarScroll(setNavBackground);
-        return cleanup; // Limpieza del efecto al desmontar el componente.
+        const cleanup = handleNavbarScroll(setNavBackground); // Llama a la función para manejar el scroll.
+        return cleanup; // Limpia el efecto cuando el componente se desmonta.
     }, []);
 
-    // Contenido del drawer (barra lateral móvil).
+    // Contenido del menú lateral móvil.
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', fontSize: '35px' }}>
-            {/* Título de la barra lateral */}
+        <Box
+            onClick={handleDrawerToggle}
+            sx={{ textAlign: 'center', fontSize: '35px' }}
+        >
+            {/* Título del menú lateral */}
             <Typography variant="h6" sx={{ my: 4, fontSize: '28px' }}>
                 Taskin
             </Typography>
             <Divider />
-            {/* Lista de elementos de navegación dentro del drawer */}
+            {/* Lista de elementos de navegación */}
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item.label || item.icon?.iconName} disablePadding>
@@ -62,13 +66,13 @@ function NavbarNavigate(props) {
                             component={Link}
                             to={item.path}
                             sx={{
-                                display: 'flex',
+                                display: 'flex', // Asegura que el contenido esté centrado.
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 textAlign: 'center',
                             }}
                         >
-                            {item.icon ? (
+                            {item.icon ? ( // Si hay un ícono, se asegura de pasarlo correctamente.
                                 <FontAwesomeIcon
                                     icon={item.icon}
                                     style={{
@@ -78,7 +82,7 @@ function NavbarNavigate(props) {
                                     }}
                                 />
                             ) : (
-                                <ListItemText primary={item.label} />
+                                <ListItemText primary={item.label} /> // Muestra el texto si no hay ícono.
                             )}
                         </ListItemButton>
                     </ListItem>
@@ -87,7 +91,7 @@ function NavbarNavigate(props) {
         </Box>
     );
 
-    // Determina el contenedor del drawer para pantallas móviles (útil si el componente está renderizado en un modal).
+    // Define el contenedor del menú lateral (drawer) para dispositivos móviles.
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
@@ -96,16 +100,15 @@ function NavbarNavigate(props) {
             {/* Barra de navegación superior */}
             <AppBar
                 component="nav"
-                className="h-[4.5rem]"
                 sx={{
-                    backgroundImage: navBackground === 'none' ? '#fff' : '#fff', // Fondo transparente o blanco dinámico.
+                    backgroundColor: navBackground, // Cambia dinámicamente según el scroll.
                     color: navBackground === 'transparent' ? '#fff' : '#000', // Cambia el color del texto.
-                    transition: 'background-color 0.3s ease', // Suaviza el cambio de fondo.
-                    boxShadow: 'none', // Elimina las sombras para un diseño plano.
+                    transition: 'background-color 0.3s ease', // Efecto suave para cambios de fondo.
+                    boxShadow: 'none', // Elimina la sombra para un diseño limpio.
                 }}
             >
                 <Toolbar className="p-[1rem]">
-                    {/* Botón para abrir el drawer en pantallas pequeñas */}
+                    {/* Botón para abrir el menú lateral en pantallas pequeñas */}
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -116,25 +119,19 @@ function NavbarNavigate(props) {
                         <MenuIcon />
                     </IconButton>
 
-                    {/* Título o espacio para logo */}
+                    {/* Logo y título */}
                     <Typography
-                        variant="h1"
+                        variant="h6"
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block', fontSize: '30px' } }}
+                        sx={{
+                            flexGrow: 1,
+                            display: { xs: 'none', sm: 'block', fontSize: '30px' },
+                        }}
                     >
-                        <a href="/">
-                            <img
-                                src={imgLog}
-                                alt="Logo"
-                                style={{
-                                    height: '40px',
-                                    marginLeft: '15px',
-                                }}
-                            />
-                        </a>
+                        Taskin
                     </Typography>
 
-                    {/* Lista de navegación visible en pantallas grandes */}
+                    {/* Lista de navegación para pantallas grandes */}
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
                             <Button
@@ -147,13 +144,15 @@ function NavbarNavigate(props) {
                                     padding: '1rem',
                                 }}
                             >
-                                {item.icon ? (
+                                {item.icon ? ( // Muestra ícono si existe.
                                     <FontAwesomeIcon
                                         icon={item.icon}
-                                        style={{ color: '#fff', fontSize: '1.1rem' }}
+                                        style={{
+                                            color: navBackground === 'transparent' ? '#fff' : '#000',
+                                        }}
                                     />
                                 ) : (
-                                    item.label
+                                    item.label // Muestra texto si no hay ícono.
                                 )}
                             </Button>
                         ))}
@@ -161,7 +160,7 @@ function NavbarNavigate(props) {
                 </Toolbar>
             </AppBar>
 
-            {/* Drawer para pantallas pequeñas */}
+            {/* Menú lateral móvil */}
             <nav>
                 <Drawer
                     container={container}
@@ -169,7 +168,7 @@ function NavbarNavigate(props) {
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
                     ModalProps={{
-                        keepMounted: true,
+                        keepMounted: true, // Mejora el rendimiento en móviles.
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },

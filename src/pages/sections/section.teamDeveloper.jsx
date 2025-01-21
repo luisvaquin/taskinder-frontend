@@ -37,18 +37,18 @@ const PAGE_TITLES = [<SectionOrganization />, <Simon2 />, <Simon />];
 const ThemeProviderProxy = ThemeProvider;
 
 function SectionTeamDeveloper() {
-    return (
-        <div>
-            <GlobalStyles />
-            <ThemeProviderProxy theme={original}>
-                {PAGE_TITLES.map((title, index) => (
-                    <Page key={index}>
-                        <Title>{title}</Title>
-                    </Page>
-                ))}
-            </ThemeProviderProxy>
-        </div>
-    );
+  return (
+    <div>
+      <GlobalStyles />
+      <ThemeProviderProxy theme={original}>
+        {PAGE_TITLES.map((title, index) => (
+          <Page key={index}>
+            <Title>{title}</Title>
+          </Page>
+        ))}
+      </ThemeProviderProxy>
+    </div>
+  );
 }
 
 const Page = styled.div``;

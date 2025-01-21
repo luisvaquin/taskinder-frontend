@@ -1,13 +1,12 @@
 import React from "react";
 import "./styles.sections.css";
-import SectionTeamDeveloper from "./section.teamDeveloper";
 
 function SectionOrganization() {
     return (
         <>
-            <div className="conteiner-sectionOrganization h-[auto]">
-                <section className="container mx-auto px-4 py-12 md:py-24">
-                    <div className="grid gap-8 md:grid-cols-2 items-center">
+            <div className="conteiner-sectionOrganization h-[auto] bg-black">
+                <section className="container mx-[10px] px-4 py-12 md:py-24">
+                    <div className="grid gap-8 md:grid-cols-2 items-center ">
                         <div className="relative aspect-[4/5] md:aspect-square w-full max-w-md mx-auto">
                             <img
                                 src="https://plus.unsplash.com/premium_photo-1690303193653-0418179e5512?q=80&w=1994&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -16,7 +15,7 @@ function SectionOrganization() {
                                 className="object-cover rounded-lg"
                             />
                         </div>
-                        <div className="space-y-8">
+                        <div className="space-y-8 ">
                             <div className="space-y-4">
                                 <p className="text-gray-700 leading-relaxed">
                                     Las empresas del futuro deben construirse sobre bases equilibradas: Empatía y

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTrail, a } from '@react-spring/web'
-
 import SectionTeamDeveloper from '../sections/section.teamDeveloper.jsx';
-import SectionOrganization from '../sections/section.organization.jsx';
 import NavbarNavigate from '../../components/navbar/navbarNavigate';
 import styles from './styles.module.css';
 import './styles.homePage.css';
@@ -46,7 +44,7 @@ function HomePage() {
                 <div className="absolute inset-0 " />
                 {/* Content */}
                 <div className="relative z-10 container mx-auto px-4 py-12 md:py-24">  {/*Contendedor zoom img homePage*/}
-                    <div className="max-w-3xl space-y-[2rem] md:space-y-8 lg:space-y-10 m-[1.2rem]">
+                    <div className="max-w-3xl space-y-[2rem] md:space-y-8 lg:space-y-10 m-[1rem] md:m-0">  {/*Contenedor de texto*/}
 
 
                         <div className="" >
@@ -62,10 +60,10 @@ function HomePage() {
                             </Trail>
                         </div>
 
-                        <div className="flex flex-wrap gap-[3rem] pt-6">
+                        <div className="flex flex-wrap gap-[3rem] pt-[2rem]">
                             <button
                                 size="lg"
-                                className="bg-white text-black hover:bg-gray-100 rounded-[5rem] h-[2.5rem] w-[11.5rem]"
+                                className="bg-white text-black hover:bg-gray-100 rounded-[5rem] h-[3rem] w-[11.5rem]"
                             >
                                 <a href="/">¿Que es Taskinn?</a>
                             </button>

@@ -17,7 +17,7 @@
 
 @media only screen and (max-width: 600px) {
     .body {
-        background-image: url('https://images.unsplash.com/photo-1528372444006-1bfc81acab02?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-image: url('https://images.pexels.com/photos/6424589/pexels-photo-6424589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     }
 }
 
@@ -29,7 +29,7 @@
     }
 
     25% {
-        transform: translateY(-50px);
+        transform: translateY(-20px);
     }
 
     50% {
@@ -37,7 +37,7 @@
     }
 
     75% {
-        transform: translateY(50px);
+        transform: translateY(20px);
     }
 
     100% {

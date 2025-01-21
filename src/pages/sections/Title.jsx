@@ -11,7 +11,7 @@ export const Title = ({ children }) => {
         () => (  // Configuración de la animación cuando el elemento entra en la vista
             {
                 from: {
-                    opacity: 0,
+                    opacity: 1,
                     y: 120  // Más lento o más suave aquí
                 },
                 to: {

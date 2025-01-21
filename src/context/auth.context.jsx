@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { registerRequest } from "../api/auth";
+import { registerRequest, loginRequest } from "../api/auth";
 
 //Guardado de datos de autenticación.
 export const AuthContext = createContext()
@@ -7,7 +7,7 @@ export const AuthContext = createContext()
 export const useAuth = () => {
     const context = useContext(AuthContext)
     if (!context) {
-        throw new Error('useAuth must be used within AuthProvider')
+        throw new Error('useAuth debe usarse dentro de AuthProvider')
     }
     return context;
 }
@@ -29,8 +29,21 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
+    const signin = async (user) => {
+        try {
+            const res = await loginRequest(user);
+            console.log(res);
+        } catch (e) {
+            if (Array.isArray(e.response.data)) {
+                return setErrors(e.response.data)
+            }
+            setErrors([e.response.data.message])
+        }
+    }
+
     return (
         <AuthContext.Provider value={{
+            signin,
             signup,
             user,
             isAuthenticated,
