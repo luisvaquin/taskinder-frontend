@@ -5,6 +5,8 @@ import toast, { Toaster } from "react-hot-toast";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+
 import { Link as RouterLink } from "react-router-dom"; // Importar Link de react-router-dom
 
 function LoginPage() {
@@ -32,13 +34,27 @@ function LoginPage() {
     <>
       <Toaster position="top-center" reverseOrder={false} />
       <div className="min-h-screen">
-        <div className="flex h-screen">
+        <div className="h-screen md:flex">
           {/* Sección izquierda */}
-          <div className="w-1/2 h-full bg-black flex justify-center items-center"></div>
+          <div className="w-1/2 h-full bg-black {flex} justify-center items-center hidden md:flex">
+            <img
+              className="w-full h-full object-cover opacity-60"
+              src="https://images.unsplash.com/photo-1624377632657-3902bfd35958?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Imagen"
+            />
+          </div>
 
           {/* Sección derecha */}
-          <div className="w-1/2 h-full bg-white flex justify-center items-center">
-            <div className="w-[25rem]">
+          <div className="w-auto md:w-1/2 h-full bg-white flex justify-center items-center">
+            <div className="md:w-[28rem] w-[18rem]">
+              <Typography
+                variant="h3"
+                gutterBottom
+                sx={{ fontSize: "4rem", ml: "auto", mt: "0rem" }}
+              >
+                LOGIN
+              </Typography>
+
               <form onSubmit={onSubmit}>
                 <ul className="space-y-8">
                   <TextField
@@ -65,8 +81,13 @@ function LoginPage() {
                     <span className="text-red-700">password is required</span>
                   )}
 
-                  <Button variant="contained" disableElevation type="submit">
-                    INICIAR SESION
+                  <Button
+                    variant="contained"
+                    disableElevation
+                    type="submit"
+                    sx={{ width: "100%" }}
+                  >
+                    INICIAR SESIÓN
                   </Button>
 
                   <div className="flex">
@@ -82,7 +103,7 @@ function LoginPage() {
                       component={RouterLink} // Usar RouterLink como el componente para navigate
                       to="/" // La ruta de redirección
                       variant="body"
-                      sx={{ marginLeft: "10rem" }}
+                      sx={{ marginLeft: "5rem" }}
                     >
                       Volver
                     </Link>
@@ -93,19 +114,6 @@ function LoginPage() {
           </div>
         </div>
       </div>
-      {/*  <Toaster position="top-center" reverseOrder={false} />
-      <form onSubmit={onSubmit} className="flex-col">
-        email <input type="email" {...register("email", { required: true })} />
-        {errors.email && (
-          <span className="text-red-700">email is required</span>
-        )}
-        password
-        <input type="password" {...register("password", { required: true })} />
-        {errors.password && (
-          <span className="text-red-700">password is required</span>
-        )}
-        <button type="submit">Login</button>
-      </form>*/}
     </>
   );
 }

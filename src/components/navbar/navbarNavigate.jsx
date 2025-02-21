@@ -121,6 +121,7 @@ function NavbarNavigate(props) {
           </IconButton>
 
           {/* Logo y título */}
+          {/* */}
           <Typography
             variant="h6"
             component="div"
@@ -129,7 +130,7 @@ function NavbarNavigate(props) {
               display: { xs: "none", sm: "block", fontSize: "30px" },
             }}
           >
-            Taskin
+            {/* Taskin*/}
           </Typography>
 
           {/* Lista de navegación para pantallas grandes */}

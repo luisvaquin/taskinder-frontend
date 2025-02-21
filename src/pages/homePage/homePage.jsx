@@ -44,10 +44,8 @@ function HomePage() {
         <div className="absolute inset-0 " />
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 py-12 md:py-24">
-          {" "}
           {/*Contendedor zoom img homePage*/}
           <div className="max-w-3xl space-y-[2rem] md:space-y-8 lg:space-y-10 m-[1rem] md:m-0">
-            {" "}
             {/*Contenedor de texto*/}
             <div className="">
               <Trail open={open}>
@@ -74,7 +72,7 @@ function HomePage() {
                 variant="outline"
                 className="text-white border-white hover:bg-white/10"
               >
-                <a href="/">Iniciar</a>
+                <a href="/login">Iniciar</a>
               </button>
             </div>
           </div>
