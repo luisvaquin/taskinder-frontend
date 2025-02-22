@@ -33,22 +33,21 @@ export const AuthProvider = ({ children }) => {
   const signin = async (user) => {
     try {
       const res = await loginRequest(user);
-      console.log(res);
-
-      // Extraer el email del usuario desde res.config.data
-      const userData = JSON.parse(res.config.data);
+      const userData = JSON.parse(res.config.data); // extraer el email del usuario desde res.config.data
       const userEmail = userData.email;
 
       toast.success(`Bienvenido: ${userEmail}`);
 
-      // Espera 500ms para que el toast se muestre antes de redirigir
       setTimeout(() => {
         window.location.href = "/userPage";
       }, 1500);
+
+      console.log(res);
     } catch (e) {
       if (Array.isArray(e.response?.data)) {
         return setErrors(e.response.data);
       }
+
       setErrors([e.response?.data?.message || "Error desconocido"]);
     }
   };
