@@ -27,7 +27,7 @@ const drawerWidth = 240;
 const navItems = [
   { label: "Login", path: "/login" },
   { label: "Register", path: "/register" },
-  { label: "", path: "/", icon: faInfo }, // Ejemplo de ícono
+  { label: "", path: "https://luisrodrigov.netlify.app", icon: faInfo }, // Ejemplo de ícono
 ];
 
 // Componente principal de la barra de navegación.
@@ -130,7 +130,12 @@ function NavbarNavigate(props) {
               display: { xs: "none", sm: "block", fontSize: "30px" },
             }}
           >
-            {/* Taskin*/}
+            {/* Taskin */}
+            <img
+              src="../../../public/iconLog_dev.png" // Reemplaza con tu imagen
+              alt="Logo"
+              style={{ width: 40, height: 40, marginRight: 10 }}
+            />
           </Typography>
 
           {/* Lista de navegación para pantallas grandes */}

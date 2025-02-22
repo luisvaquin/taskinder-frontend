@@ -1,17 +1,15 @@
-import * as React from 'react';
-import { styleReset } from 'react95';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-import Simon from './Simon.jsx';
-import Simon2 from './Simon2.jsx';
-import SectionOrganization from './section.organization.jsx';
+import * as React from "react";
+import { styleReset } from "react95";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import SectionOrganization from "./section.organization.jsx";
 
-import original from 'react95/dist/themes/original';
+import original from "react95/dist/themes/original";
 // @ts-ignore
-import ms_sans_serif from 'react95/dist/fonts/ms_sans_serif.woff2';
+import ms_sans_serif from "react95/dist/fonts/ms_sans_serif.woff2";
 // @ts-ignore
-import ms_sans_serif_bold from 'react95/dist/fonts/ms_sans_serif_bold.woff2';
+import ms_sans_serif_bold from "react95/dist/fonts/ms_sans_serif_bold.woff2";
 
-import { Title } from './Title.jsx';
+import { Title } from "./Title.jsx";
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -32,23 +30,12 @@ const GlobalStyles = createGlobalStyle`
   ${styleReset}
 `;
 
-const PAGE_TITLES = [<SectionOrganization />, <Simon2 />, <Simon />];
+const PAGE_TITLES = [<SectionOrganization />];
 
 const ThemeProviderProxy = ThemeProvider;
 
 function SectionTeamDeveloper() {
-  return (
-    <div>
-      <GlobalStyles />
-      <ThemeProviderProxy theme={original}>
-        {PAGE_TITLES.map((title, index) => (
-          <Page key={index}>
-            <Title>{title}</Title>
-          </Page>
-        ))}
-      </ThemeProviderProxy>
-    </div>
-  );
+  return <div></div>;
 }
 
 const Page = styled.div``;

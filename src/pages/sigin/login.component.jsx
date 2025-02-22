@@ -6,8 +6,9 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
+import "../../index.css";
 
-import { Link as RouterLink } from "react-router-dom"; // Importar Link de react-router-dom
+import { Link as RouterLink } from "react-router-dom"; // react-router-dom para MatUI
 
 function LoginPage() {
   const {
@@ -30,12 +31,20 @@ function LoginPage() {
     }
   }, [signinErrors]);
 
+  useEffect(() => {
+    if (errors.email) {
+      toast.error("El email es requerido");
+    }
+    if (errors.password) {
+      toast.error("La contraseña es requerida");
+    }
+  }, [errors.email, errors.password]);
+
   return (
     <>
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="min-h-screen">
+      <div className="min-h-screen ">
         <div className="h-screen md:flex">
-          {/* Sección izquierda */}
           <div className="w-1/2 h-full bg-black {flex} justify-center items-center hidden md:flex">
             <img
               className="w-full h-full object-cover opacity-60"
@@ -44,7 +53,6 @@ function LoginPage() {
             />
           </div>
 
-          {/* Sección derecha */}
           <div className="w-auto md:w-1/2 h-full bg-white flex justify-center items-center">
             <div className="md:w-[28rem] w-[18rem]">
               <Typography
@@ -62,11 +70,12 @@ function LoginPage() {
                     label="USUARIO"
                     id="outlined-required"
                     defaultValue=""
-                    type="email"
+                    type=""
                     {...register("email", { required: true })}
                   />
+
                   {errors.email && (
-                    <span className="text-red-700">email is required</span>
+                    <span className="text-red-700">{errors.email.message}</span>
                   )}
 
                   <TextField
@@ -77,8 +86,11 @@ function LoginPage() {
                     type="password"
                     {...register("password", { required: true })}
                   />
+
                   {errors.password && (
-                    <span className="text-red-700">password is required</span>
+                    <span className="text-red-700">
+                      {errors.password.message}
+                    </span>
                   )}
 
                   <Button
@@ -103,7 +115,7 @@ function LoginPage() {
                       component={RouterLink} // Usar RouterLink como el componente para navigate
                       to="/" // La ruta de redirección
                       variant="body"
-                      sx={{ marginLeft: "5rem" }}
+                      sx={{ marginLeft: "auto" }}
                     >
                       Volver
                     </Link>

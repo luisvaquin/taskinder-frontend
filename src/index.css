@@ -6,4 +6,22 @@
 /*5373fa,445497,5366bd,5b71d8,6475eb,6c78e0,3454ac,4c5cd4,5c84e8,3c74fc
 
 /* Array */
-/*["5373fa","445497","5366bd","5b71d8","6475eb","6c78e0","3454ac","4c5cd4","5c84e8","3c74fc"] */
+/*["5373fa","445497","5366bd","5b71d8","6475eb","6c78e0","3454ac","4c5cd4","5c84e8","3c74fc"] */ 
+
+
+* {
+    animation: transitionIn 0.8s;
+    /* Reduje la duración a 0.3 segundos */
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-39deg);
+    }
+
+    to {
+        opacity: 2;
+        transform: rotateX(-56);
+    }
+}

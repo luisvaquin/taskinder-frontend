@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useTrail, a } from "@react-spring/web";
 import SectionTeamDeveloper from "../sections/section.teamDeveloper.jsx";
 import NavbarNavigate from "../../components/navbar/navbarNavigate";
-import styles from "./styles.module.css";
 import "./styles.homePage.css";
 
 const Trail = ({ open, children }) => {
@@ -17,7 +16,7 @@ const Trail = ({ open, children }) => {
   return (
     <div>
       {trail.map(({ height, ...style }, index) => (
-        <a.div key={index} className={styles.trailsText} style={style}>
+        <a.div key={index} style={style}>
           <a.div style={{ height }}>{items[index]}</a.div>
         </a.div>
       ))}
