@@ -5,6 +5,7 @@ import HomePage from "./pages/homePage/homePage";
 import { AuthProvider } from "./context/auth.context";
 import LoginPage from "./pages/sigin/login.component";
 import SectionOrganization from "./pages/sections/section.organization";
+import SectionUser from "./pages/sections/sectionUser";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             path="/sectionOrganization"
             element={<SectionOrganization />}
           />
+          <Route path="/userPage" element={<SectionUser />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

@@ -36,10 +36,15 @@ export const AuthProvider = ({ children }) => {
       console.log(res);
 
       // Extraer el email del usuario desde res.config.data
-      const userData = JSON.parse(res.config.data); // Convierte el string en un objeto
-      const userEmail = userData.email; // Obtiene el email
+      const userData = JSON.parse(res.config.data);
+      const userEmail = userData.email;
 
       toast.success(`Bienvenido: ${userEmail}`);
+
+      // Espera 500ms para que el toast se muestre antes de redirigir
+      setTimeout(() => {
+        window.location.href = "/userPage";
+      }, 1500);
     } catch (e) {
       if (Array.isArray(e.response?.data)) {
         return setErrors(e.response.data);

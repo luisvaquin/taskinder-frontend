@@ -55,16 +55,28 @@ function LoginPage() {
 
           <div className="w-auto md:w-1/2 h-full bg-white flex justify-center items-center">
             <div className="md:w-[28rem] w-[18rem]">
-              <Typography
-                variant="h3"
-                gutterBottom
-                sx={{ fontSize: "4rem", ml: "auto", mt: "0rem" }}
-              >
-                LOGIN
-              </Typography>
+              <div className="flex h-auto w-auto">
+                <div>
+                  <Typography
+                    variant="h3"
+                    gutterBottom
+                    sx={{ fontSize: "4rem", ml: "auto", mt: "0rem" }}
+                  >
+                    LOGIN
+                  </Typography>
+                </div>
+                <div className="mt-[13px] ml-3 w-[auto] h-[auto]">
+                  <img
+                    className="pm-3"
+                    src="../../../public/iconLog_dev.png" // Reemplaza con tu imagen
+                    alt="Logo"
+                    style={{ width: 70, height: 50 }}
+                  />
+                </div>
+              </div>
 
               <form onSubmit={onSubmit}>
-                <ul className="space-y-8">
+                <ul className="space-y-7">
                   <TextField
                     fullWidth
                     label="USUARIO"
@@ -73,10 +85,7 @@ function LoginPage() {
                     type=""
                     {...register("email", { required: true })}
                   />
-
-                  {errors.email && (
-                    <span className="text-red-700">{errors.email.message}</span>
-                  )}
+                  {errors.email && <span>{errors.email.message}</span>}
 
                   <TextField
                     fullWidth
@@ -86,12 +95,7 @@ function LoginPage() {
                     type="password"
                     {...register("password", { required: true })}
                   />
-
-                  {errors.password && (
-                    <span className="text-red-700">
-                      {errors.password.message}
-                    </span>
-                  )}
+                  {errors.password && <span>{errors.password.message}</span>}
 
                   <Button
                     variant="contained"
