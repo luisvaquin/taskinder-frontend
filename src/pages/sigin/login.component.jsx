@@ -68,7 +68,7 @@ function LoginPage() {
                 <div className="mt-[13px] ml-3 w-[auto] h-[auto]">
                   <img
                     className="pm-3"
-                    src="../../../public/iconLog_dev.png" // Reemplaza con tu imagen
+                    src="../../../public/iconLog_dev.png"
                     alt="Logo"
                     style={{ width: 70, height: 50 }}
                   />
