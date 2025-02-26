@@ -121,7 +121,6 @@ function NavbarNavigate(props) {
           </IconButton>
 
           {/* Logo y título */}
-          {/* */}
           <Typography
             variant="h6"
             component="div"
