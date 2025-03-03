@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "https://taskinder-backend.vercel.app/api";
+const API = "https://taskinn-backend.onrender.com/api";
 
 export const registerRequest = (user) => axios.post(`${API}/register`, user);
 

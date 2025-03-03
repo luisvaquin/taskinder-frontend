@@ -49,7 +49,7 @@ function HomePage() {
             <div className="">
               <Trail open={open}>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight animate-wave">
-                  TASKINN
+                  Draskinn
                 </h1>
 
                 <p className="text-xl md:text-2xl text-gray-300 animate-wave">

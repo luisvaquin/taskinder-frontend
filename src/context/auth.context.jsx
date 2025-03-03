@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
       const userData = JSON.parse(res.config.data); // extraer el email del usuario desde res.config.data
       const userEmail = userData.email;
 
-      toast.success(`Bienvenido: ${userEmail}`);
+      toast.success(`welcome: ${userEmail}`);
 
       setTimeout(() => {
         window.location.href = "/userPage";
