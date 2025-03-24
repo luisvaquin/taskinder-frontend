@@ -26,13 +26,10 @@ export default function SectionUser() {
         }}
       />
       <div className="text-center z-10 p-8 bg-white/10 backdrop-blur-md rounded-xl shadow-lg">
-        <h1 className="text-5xl font-bold text-white mb-4 transition-transform duration-500 hover:scale-105">
-          BIENVENIDO xd
-        </h1>
         <p className="text-xl text-white mb-6 opacity-90">
           Explore, Create, and Inspire
         </p>
-        <a href="/">
+        <a href="/login">
           <button className="px-6 py-3 bg-white text-black-600 rounded-full font-semibold text-lg shadow-lg hover:bg-opacity-90 hover:scale-105 transition-all duration-300">
             Volver
           </button>
